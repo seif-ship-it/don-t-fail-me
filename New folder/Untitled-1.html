@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Player CRT Cat Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="crt-monitor">
+        
+        <div class="screen-area">
+
+            <div class="player-container">
+                
+                <div class="window-header">
+                    <span class="window-title">Pixel Player</span>
+                    <div class="window-controls">
+                        <button class="win-btn win-minimize">-</button>
+                        <button class="win-btn win-close">X</button>
+                    </div>
+                </div>
+
+                <div class="video-content">
+                    
+                    <video id="pixelVideo" preload="auto" poster="c:\Users\seife\Desktop\New folder\c9d44a5bff4682990406c23b0eb5f71c.jpg"> 
+                        <source src="your-video.mp4" type="video/mp4"> 
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div class="controls-overlay">
+                        
+                        <button id="playPauseBtn" class="pixel-btn">▶</button>
+                        
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="duration">1:35</span>
+                        </div>
+
+                        <input type="range" id="progressBar" value="0" min="0" max="100" step="0.1" class="pixel-progress">
+
+                        <div class="volume-control">
+                            <span class="volume-label">volume</span>
+                            <button id="muteUnmuteBtn" class="pixel-btn">🔊</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> 
+        <div class="power-led"></div>
+        
+        <div class="monitor-stand"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
