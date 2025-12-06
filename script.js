@@ -24,27 +24,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('emailInput').value;
         const message = document.getElementById('messageInput').value;
 
+        const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1444986137197285419/LRzYP3QKSrDM8csDbS6774A8IT2eYlfpOpX-wXL60TAiJk0t-ZEOh5lVvQ72hBvibtXy"; // <-- put your webhook here
+
         try {
-            const response = await fetch('/api/send-message', {
+            const response = await fetch(DISCORD_WEBHOOK, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name,
-                    email,
-                    message
+                    content: `New message from **${name}** (${email}):\n${message}`
                 })
             });
 
-            const result = await response.json();
-
-            if (response.ok) {
+            if (response.status === 204) {
                 messageDiv.textContent = 'Message sent successfully!';
                 messageDiv.className = 'message success';
                 contactForm.reset();
             } else {
-                messageDiv.textContent = result.error || 'Failed to send message';
+                messageDiv.textContent = 'Failed to send message';
                 messageDiv.className = 'message error';
             }
         } catch (error) {
